@@ -1,0 +1,336 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login - LUXE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display"
+  >
+    <div class="relative flex min-h-screen flex-col">
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-10">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >diamond</span
+                >
+                <h1
+                  class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-100"
+                >
+                  LUXE
+                </h1>
+              </div>
+              <nav class="hidden md:flex space-x-8">
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="index.html"
+                  >Home</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >New Arrivals</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="product.html"
+                  >Collections</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Accessories</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Journal</a
+                >
+              </nav>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
+                  >search</span
+                >
+                <input
+                  class="bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary w-64"
+                  placeholder="Search collections..."
+                  type="text"
+                  onkeypress="
+                    if (event.key === 'Enter')
+                      window.location.href = 'search-result.html';
+                  "
+                />
+              </div>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                onclick="window.location.href = 'wishlist.html'"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative"
+                onclick="window.location.href = 'shopping-cart.html'"
+              >
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span
+                  class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
+                  >2</span
+                >
+              </button>
+              <div class="relative group ml-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="User profile avatar portrait"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMo5K2LTyBXjPQwQHTgGT1iJLo-sB_wb00MViPzPvz0aDzY4sPBhP92g5UFU8xpg8LrsUCp43l-7nWrSYc9GYW-5204VPpDRWRk2Otb0K02hWRqeRjRO7DCJ1i70Foh7-li1AdcoN4HRTjo5daz5fBk3mi1aBBSYuknlJBSQQHAqfJS5Z4FOxzc5I6n8-LO0qtrJQewpD5CyaSX2489f0rdM8fTuDV_G9kJi6b9U4VeTqaELjGR-PskhLhDy86ST8sg_NPz4U-djw"
+                  />
+                </div>
+                <!-- Hover menu -->
+                <div
+                  class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                >
+                  <div
+                    class="bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden py-1"
+                  >
+                    <a
+                      href="login.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Log in</a
+                    >
+                    <a
+                      href="register.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Registration</a
+                    >
+                    <a
+                      href="profile.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Profile</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main Content Area: Split Screen -->
+      <main class="flex-1 flex overflow-hidden">
+        <!-- Left Side: Editorial Image -->
+        <div class="hidden lg:block lg:w-1/2 relative bg-slate-900">
+          <div
+            class="absolute inset-0 bg-cover bg-center opacity-90"
+            data-alt="High fashion model in a minimalist luxury setting"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDZVLnsuvEDj3UqqiuFMabjdiyCrYvPRVQX_Xz7_18rLoluuZl8JK6jZHINxtitzTG9v_d2VrpgrPCylWPscI81Oxj-IVFp-8AxA6h6IZHa2YxBKPuv1frzNx1ttaG97OZ3VqXX0ZiiaoExeQg6eOi2AeULWlw-rn1DoKoYtlxvY13oV1BYqYof8cvu79DmETVi2_88Cis_QzcHj2CA00zSP6bectXAXlGgXmGzafztpxEwNcW-n4W625u_aJN3WoMzPn7EHaMXGI8&quot;);
+            "
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-16"
+          >
+            <p
+              class="text-white text-sm tracking-[0.2em] uppercase mb-4 opacity-80"
+            >
+              Autumn / Winter 2024
+            </p>
+            <h3 class="text-white text-5xl font-light leading-tight max-w-md">
+              Defined by elegance, crafted for you.
+            </h3>
+          </div>
+        </div>
+        <!-- Right Side: Login Form -->
+        <div
+          class="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 bg-white dark:bg-background-dark"
+        >
+          <div class="w-full max-w-md space-y-8">
+            <div class="space-y-2">
+              <h1
+                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white"
+              >
+                Welcome back
+              </h1>
+              <p class="text-slate-500 dark:text-slate-400">
+                Please enter your details to access your private account.
+              </p>
+            </div>
+            <form class="space-y-6">
+              <!-- Email Field -->
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium text-slate-700 dark:text-slate-300"
+                  for="email"
+                  >Email Address</label
+                >
+                <div class="relative group">
+                  <input
+                    class="w-full h-12 px-4 rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
+                    id="email"
+                    placeholder="alexander@luxe.com"
+                    required=""
+                    type="email"
+                  />
+                </div>
+              </div>
+              <!-- Password Field -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <label
+                    class="text-sm font-medium text-slate-700 dark:text-slate-300"
+                    for="password"
+                    >Password</label
+                  >
+                  <a
+                    class="text-xs font-semibold text-primary hover:underline"
+                    href="#"
+                    >Forgot password?</a
+                  >
+                </div>
+                <div class="relative flex items-center">
+                  <input
+                    class="w-full h-12 px-4 pr-12 rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600"
+                    id="password"
+                    placeholder="••••••••"
+                    required=""
+                    type="password"
+                  />
+                  <button
+                    class="absolute right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Remember Me -->
+              <div class="flex items-center">
+                <input
+                  class="h-4 w-4 rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-primary focus:ring-primary transition-colors cursor-pointer"
+                  id="remember"
+                  type="checkbox"
+                />
+                <label
+                  class="ml-2 block text-sm text-slate-600 dark:text-slate-400 cursor-pointer"
+                  for="remember"
+                >
+                  Keep me logged in
+                </label>
+              </div>
+              <!-- Action Button -->
+              <button
+                class="w-full h-12 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
+                type="submit"
+              >
+                <span>Log In</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+              <!-- Social Login Divider -->
+              <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                  <span
+                    class="w-full border-t border-slate-200 dark:border-slate-800"
+                  ></span>
+                </div>
+                <div class="relative flex justify-center text-xs uppercase">
+                  <span
+                    class="bg-white dark:bg-background-dark px-4 text-slate-400 font-medium tracking-wider"
+                    >Or continue with</span
+                  >
+                </div>
+              </div>
+              <!-- Social Login Grid -->
+              <div class="grid grid-cols-2 gap-4">
+                <button
+                  class="flex h-12 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  type="button"
+                >
+                  <svg class="h-5 w-5 mr-2" viewbox="0 0 24 24">
+                    <path
+                      d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                  <span class="text-sm font-semibold">Google</span>
+                </button>
+                <button
+                  class="flex h-12 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  type="button"
+                >
+                  <svg class="h-5 w-5 mr-2" viewbox="0 0 24 24">
+                    <path
+                      d="M17.05,20.28c-0.84,0.12-2.12,0.61-3.64,0.61c-2.31,0-3.34-1.3-5.32-1.3c-1.89,0-3.13,1.21-4.99,1.21c-1.34,0-2.33-0.57-2.33-0.57s4.41-11.75,9.45-11.75c1.47,0,2.77,0.72,3.82,0.72c1.07,0,2.67-0.78,4.19-0.78c1.78,0,3.34,0.92,4.14,1.96c-3.56,1.49-3.03,6.13,0.38,7.39C21.72,19.34,19.29,20.08,17.05,20.28z M12.8,7.99c-1.12,0-2.61-1.01-2.61-2.55c0-1.78,1.69-3.41,3.48-3.41c1.1,0,2.37,0.99,2.37,2.58C16.03,5.6,14.65,7.99,12.8,7.99z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                  <span class="text-sm font-semibold">Apple</span>
+                </button>
+              </div>
+            </form>
+            <div class="text-center pt-4">
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Don't have an account?
+                <a class="font-bold text-primary hover:underline ml-1" href="#"
+                  >Create Account</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

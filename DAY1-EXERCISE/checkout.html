@@ -1,0 +1,600 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Checkout - LUXE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display"
+  >
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- Top Navigation -->
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-10">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >diamond</span
+                >
+                <h1
+                  class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-100"
+                >
+                  LUXE
+                </h1>
+              </div>
+              <nav class="hidden md:flex space-x-8">
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="index.html"
+                  >Home</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >New Arrivals</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="product.html"
+                  >Collections</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Accessories</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Journal</a
+                >
+              </nav>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
+                  >search</span
+                >
+                <input
+                  class="bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary w-64"
+                  placeholder="Search collections..."
+                  type="text"
+                  onkeypress="
+                    if (event.key === 'Enter')
+                      window.location.href = 'search-result.html';
+                  "
+                />
+              </div>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                onclick="window.location.href = 'wishlist.html'"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative"
+                onclick="window.location.href = 'shopping-cart.html'"
+              >
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span
+                  class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
+                  >2</span
+                >
+              </button>
+              <div class="relative group ml-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="User profile avatar portrait"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMo5K2LTyBXjPQwQHTgGT1iJLo-sB_wb00MViPzPvz0aDzY4sPBhP92g5UFU8xpg8LrsUCp43l-7nWrSYc9GYW-5204VPpDRWRk2Otb0K02hWRqeRjRO7DCJ1i70Foh7-li1AdcoN4HRTjo5daz5fBk3mi1aBBSYuknlJBSQQHAqfJS5Z4FOxzc5I6n8-LO0qtrJQewpD5CyaSX2489f0rdM8fTuDV_G9kJi6b9U4VeTqaELjGR-PskhLhDy86ST8sg_NPz4U-djw"
+                  />
+                </div>
+                <!-- Hover menu -->
+                <div
+                  class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                >
+                  <div
+                    class="bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden py-1"
+                  >
+                    <a
+                      href="login.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Log in</a
+                    >
+                    <a
+                      href="register.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Registration</a
+                    >
+                    <a
+                      href="profile.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Profile</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-7xl mx-auto w-full px-4 md:px-10 py-8">
+        <!-- Progress Section -->
+        <div class="mb-10 max-w-3xl">
+          <div class="flex justify-between items-end mb-2">
+            <h1 class="text-3xl font-black tracking-tight">Checkout</h1>
+            <span class="text-sm font-semibold text-primary">Step 2 of 3</span>
+          </div>
+          <div
+            class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden"
+          >
+            <div
+              class="bg-primary h-full w-[66%] transition-all duration-500"
+            ></div>
+          </div>
+          <div class="flex justify-between mt-2">
+            <span
+              class="text-xs font-medium text-slate-500 uppercase tracking-wider"
+              >Shipping</span
+            >
+            <span
+              class="text-xs font-medium text-primary uppercase tracking-wider"
+              >Payment</span
+            >
+            <span
+              class="text-xs font-medium text-slate-500 uppercase tracking-wider"
+              >Confirmation</span
+            >
+          </div>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-12">
+          <!-- Left Column: Checkout Forms -->
+          <div class="flex-1 space-y-12">
+            <!-- Section 1: Shipping Address -->
+            <section>
+              <div class="flex items-center gap-3 mb-6">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white text-sm font-bold"
+                  >1</span
+                >
+                <h2 class="text-xl font-bold">Shipping Address</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >First Name</label
+                  >
+                  <input
+                    class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                    placeholder="Jane"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Last Name</label
+                  >
+                  <input
+                    class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                    placeholder="Doe"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-1.5 md:col-span-2">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Address Line 1</label
+                  >
+                  <input
+                    class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                    placeholder="123 Luxury Lane"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >City</label
+                  >
+                  <input
+                    class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                    placeholder="Paris"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Postal Code</label
+                  >
+                  <input
+                    class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                    placeholder="75001"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </section>
+            <!-- Section 2: Delivery Method -->
+            <section>
+              <div class="flex items-center gap-3 mb-6">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white text-sm font-bold"
+                  >2</span
+                >
+                <h2 class="text-xl font-bold">Delivery Method</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label
+                  class="relative flex items-center p-4 border-2 border-primary bg-primary/5 rounded-xl cursor-pointer"
+                >
+                  <input
+                    checked=""
+                    class="text-primary focus:ring-primary"
+                    name="delivery"
+                    type="radio"
+                  />
+                  <div class="ml-4">
+                    <p class="font-bold">Standard Delivery</p>
+                    <p class="text-sm text-slate-500">3-5 business days</p>
+                  </div>
+                  <span class="ml-auto font-bold">Free</span>
+                </label>
+                <label
+                  class="relative flex items-center p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl cursor-pointer hover:border-primary/50 transition-colors"
+                >
+                  <input
+                    class="text-primary focus:ring-primary"
+                    name="delivery"
+                    type="radio"
+                  />
+                  <div class="ml-4">
+                    <p class="font-bold">Express Shipping</p>
+                    <p class="text-sm text-slate-500">Next day delivery</p>
+                  </div>
+                  <span class="ml-auto font-bold">$25.00</span>
+                </label>
+              </div>
+            </section>
+            <!-- Section 3: Payment Details -->
+            <section>
+              <div class="flex items-center gap-3 mb-6">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white text-sm font-bold"
+                  >3</span
+                >
+                <h2 class="text-xl font-bold">Payment Details</h2>
+              </div>
+              <div class="space-y-6">
+                <div
+                  class="flex gap-4 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg w-fit"
+                >
+                  <button
+                    class="px-6 py-2 rounded-md bg-white dark:bg-slate-700 shadow-sm text-sm font-bold"
+                  >
+                    Credit Card
+                  </button>
+                  <button
+                    class="px-6 py-2 rounded-md text-slate-500 dark:text-slate-400 text-sm font-bold hover:text-primary transition-colors"
+                  >
+                    PayPal
+                  </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1.5 md:col-span-2">
+                    <label
+                      class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                      >Card Number</label
+                    >
+                    <div class="relative">
+                      <input
+                        class="w-full rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3 pr-12"
+                        placeholder="0000 0000 0000 0000"
+                        type="text"
+                      />
+                      <span
+                        class="material-symbols-outlined absolute right-3 top-3 text-slate-400"
+                        >credit_card</span
+                      >
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                      >Expiry Date</label
+                    >
+                    <input
+                      class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                      placeholder="MM / YY"
+                      type="text"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-1.5">
+                    <label
+                      class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                      >CVV</label
+                    >
+                    <input
+                      class="rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary p-3"
+                      placeholder="123"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="pt-6">
+              <button
+                class="w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold py-4 px-12 rounded-lg transition-all shadow-lg shadow-primary/20"
+                onclick="window.location.href = 'thankyou.html'"
+              >
+                Complete Order
+              </button>
+            </div>
+          </div>
+          <!-- Right Column: Order Summary -->
+          <aside class="lg:w-96">
+            <div
+              class="sticky top-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm"
+            >
+              <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                <h3 class="text-lg font-bold">Order Summary</h3>
+              </div>
+              <div class="p-6 space-y-6">
+                <!-- Items -->
+                <div class="space-y-4">
+                  <div class="flex gap-4">
+                    <div
+                      class="size-20 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden shrink-0"
+                    >
+                      <img
+                        class="w-full h-full object-cover"
+                        data-alt="Beige luxury wool coat fashion product image"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtbqpSouD-2khvijGQ8OahRbfPY2QhoUPvRGCragh5nMjH8qLkKypCkv8PsmSCCfUC2vfK8T2RfA3F6wk9JcOwnT3Exa3iRlppgG8D2T0QSmmBvMSfYBkbMZwHChXkRXBY_0I5wku5i2e463xAQCMMGkT95vXLfswPzFzo8C7DXiC2ANPPBV5bnKKKl15mrPc98NmN6JdrQFQYy3Eu4BVpa00P-0HxLMCxOYdUnT1y0iJ20bv63A1a0NJdViMAaWl2gfnYWGoT7bg"
+                      />
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-bold text-sm">Cashmere Wool Coat</p>
+                      <p class="text-xs text-slate-500">
+                        Size: M | Color: Beige
+                      </p>
+                      <p class="font-bold text-sm mt-1">$1,250.00</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div
+                      class="size-20 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden shrink-0"
+                    >
+                      <img
+                        class="w-full h-full object-cover"
+                        data-alt="Luxury black leather handbag accessory image"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuChYxx2G9Z2s2Se39PhTzRKrEJPeBLI3bItLN4d1xT33mfA6WHuRy0lVdw0exCv1qCPnIpRh6CusQuZ-GZeTrxGC6mSmfdxBc_AnRZPD8FpONsyOgIA7O0xZQcw1tMCRhIN_umogJX7C39fKXLbeSuxQagbYbk6bUkVh-Ibe8jA6W8_G3k2WqAaPsSnY2jZB2FzMEsskkU4zdnn_I8CRmq7-mtzZNmFBv3Fyj_8UQenZeRL682fTXMMc8CV7N9se2lQ57gaF7IKBNo"
+                      />
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-bold text-sm">Large Leather Tote</p>
+                      <p class="text-xs text-slate-500">Color: Onyx Black</p>
+                      <p class="font-bold text-sm mt-1">$890.00</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Calculations -->
+                <div
+                  class="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-3"
+                >
+                  <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Subtotal</span>
+                    <span class="font-medium">$2,140.00</span>
+                  </div>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Shipping</span>
+                    <span class="font-medium">Free</span>
+                  </div>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-slate-500">Tax</span>
+                    <span class="font-medium">$182.00</span>
+                  </div>
+                  <div class="flex justify-between text-lg font-black pt-3">
+                    <span>Total</span>
+                    <span class="text-primary">$2,322.00</span>
+                  </div>
+                </div>
+                <!-- Promo Code -->
+                <div class="flex gap-2 pt-2">
+                  <input
+                    class="flex-1 text-sm rounded-lg border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5"
+                    placeholder="Promo code"
+                    type="text"
+                  />
+                  <button
+                    class="px-4 py-2 bg-slate-200 dark:bg-slate-800 rounded-lg text-sm font-bold"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+              <div
+                class="p-6 bg-slate-50 dark:bg-slate-800/50 flex flex-col gap-2"
+              >
+                <div
+                  class="flex items-center gap-2 text-[10px] text-slate-400 uppercase font-black tracking-widest"
+                >
+                  <span class="material-symbols-outlined text-xs"
+                    >verified_user</span
+                  >
+                  Secure Checkout
+                </div>
+                <p class="text-[11px] text-slate-500 leading-relaxed">
+                  Your information is encrypted and processed securely. By
+                  completing your purchase you agree to our Terms of Service.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+      <!-- Simple Footer -->
+      <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-slate-800 pb-12 mb-12"
+          >
+            <div class="col-span-1 md:col-span-1">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="material-symbols-outlined text-white text-3xl"
+                  >diamond</span
+                >
+                <h1 class="text-2xl font-black tracking-tighter text-white">
+                  LUXE
+                </h1>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Redefining luxury through timeless elegance and sustainable
+                craftsmanship since 1992.
+              </p>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                Customer Service
+              </h5>
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Shipping &amp; Returns</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Size Guide</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                The Brand
+              </h5>
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Our Story</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Atelier</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Sustainability</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Careers</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                Join the Journal
+              </h5>
+              <p class="text-sm mb-4">
+                Receive early access to collections and exclusive invites.
+              </p>
+              <div class="flex">
+                <input
+                  class="bg-slate-800 border-none rounded-l-lg py-2 px-4 text-sm focus:ring-1 focus:ring-primary w-full"
+                  placeholder="Email Address"
+                  type="email"
+                />
+                <button
+                  class="bg-slate-100 text-slate-900 px-4 rounded-r-lg font-bold text-xs uppercase"
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs uppercase tracking-widest"
+          >
+            <p>© 2026 LUXE ATELIER. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-8">
+              <a class="hover:text-white" href="#">Privacy Policy</a>
+              <a class="hover:text-white" href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

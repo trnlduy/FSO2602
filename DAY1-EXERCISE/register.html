@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Register - LUXE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-10">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >diamond</span
+                >
+                <h1
+                  class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-100"
+                >
+                  LUXE
+                </h1>
+              </div>
+              <nav class="hidden md:flex space-x-8">
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="index.html"
+                  >Home</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >New Arrivals</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="product.html"
+                  >Collections</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Accessories</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Journal</a
+                >
+              </nav>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
+                  >search</span
+                >
+                <input
+                  class="bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary w-64"
+                  placeholder="Search collections..."
+                  type="text"
+                  onkeypress="
+                    if (event.key === 'Enter')
+                      window.location.href = 'search-result.html';
+                  "
+                />
+              </div>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                onclick="window.location.href = 'wishlist.html'"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative"
+                onclick="window.location.href = 'shopping-cart.html'"
+              >
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span
+                  class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
+                  >2</span
+                >
+              </button>
+              <div class="relative group ml-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="User profile avatar portrait"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMo5K2LTyBXjPQwQHTgGT1iJLo-sB_wb00MViPzPvz0aDzY4sPBhP92g5UFU8xpg8LrsUCp43l-7nWrSYc9GYW-5204VPpDRWRk2Otb0K02hWRqeRjRO7DCJ1i70Foh7-li1AdcoN4HRTjo5daz5fBk3mi1aBBSYuknlJBSQQHAqfJS5Z4FOxzc5I6n8-LO0qtrJQewpD5CyaSX2489f0rdM8fTuDV_G9kJi6b9U4VeTqaELjGR-PskhLhDy86ST8sg_NPz4U-djw"
+                  />
+                </div>
+                <!-- Hover menu -->
+                <div
+                  class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                >
+                  <div
+                    class="bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden py-1"
+                  >
+                    <a
+                      href="login.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Log in</a
+                    >
+                    <a
+                      href="register.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Registration</a
+                    >
+                    <a
+                      href="profile.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Profile</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Main Content: Split Screen -->
+      <main class="flex-grow flex flex-col md:flex-row h-full">
+        <!-- Left Side: Editorial Image -->
+        <div class="hidden md:block w-1/2 relative overflow-hidden">
+          <div
+            class="absolute inset-0 bg-cover bg-center"
+            data-alt="High fashion model in elegant silk dress"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCLJSVWFC1NEo35DdZW0Ue39jMp3ckcDkaTI7wWwf-Pm9Jp935yK8ZAuHDobNQ0At4zAov5efB00sISlJU1FvhpYXSQ3Asybj3QcCcUCFEG_jrI629f-S17PAEjvWQnhScPYiJYVzPiFv0Bjb-IvuqrdI82UKonUQVAaOANBMb76NghjTeRYAjo1QlFxLcHccAFWu_yuS2VggRIM8xsXcW3LyhUT5xkCj4F2wUbgAjp2nHH_09WDnYNaaxyimThWqg6wJfCU0e178c&quot;);
+            "
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12"
+          >
+            <h1 class="text-white text-5xl font-black mb-4 leading-tight">
+              Elevate Your <br />Style Journey
+            </h1>
+            <p class="text-white/80 text-lg max-w-md">
+              Experience the pinnacle of luxury craftsmanship and exclusive
+              seasonal collections.
+            </p>
+          </div>
+        </div>
+        <!-- Right Side: Registration Form -->
+        <div
+          class="w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 lg:p-24 bg-background-light dark:bg-background-dark"
+        >
+          <div class="w-full max-w-md space-y-8">
+            <div class="space-y-2">
+              <h2
+                class="text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight"
+              >
+                Create Account
+              </h2>
+              <p class="text-slate-500 dark:text-slate-400">
+                Join our exclusive community for bespoke services and early
+                access.
+              </p>
+            </div>
+            <form class="space-y-6">
+              <div class="space-y-4">
+                <!-- Full Name -->
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Full Name</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                    placeholder="Alexander McQueen"
+                    type="text"
+                  />
+                </div>
+                <!-- Email -->
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Email Address</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                    placeholder="name@luxury.com"
+                    type="email"
+                  />
+                </div>
+                <!-- Password -->
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Password</label
+                  >
+                  <div class="relative">
+                    <input
+                      class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                      placeholder="••••••••"
+                      type="password"
+                    />
+                    <button
+                      class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >visibility</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <!-- Confirm Password -->
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="text-sm font-semibold text-slate-700 dark:text-slate-300"
+                    >Confirm Password</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-400"
+                    placeholder="••••••••"
+                    type="password"
+                  />
+                </div>
+              </div>
+              <!-- Checkboxes -->
+              <div class="space-y-3">
+                <label class="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    class="mt-1 rounded border-slate-300 dark:border-slate-700 text-primary focus:ring-primary bg-white dark:bg-slate-900"
+                    type="checkbox"
+                  />
+                  <span
+                    class="text-sm text-slate-600 dark:text-slate-400 leading-tight"
+                  >
+                    I agree to the
+                    <a class="text-primary hover:underline" href="#"
+                      >Terms of Service</a
+                    >
+                    and
+                    <a class="text-primary hover:underline" href="#"
+                      >Privacy Policy</a
+                    >.
+                  </span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    class="mt-1 rounded border-slate-300 dark:border-slate-700 text-primary focus:ring-primary bg-white dark:bg-slate-900"
+                    type="checkbox"
+                  />
+                  <span
+                    class="text-sm text-slate-600 dark:text-slate-400 leading-tight"
+                  >
+                    Sign me up for the newsletter to receive exclusive updates
+                    and collection launches.
+                  </span>
+                </label>
+              </div>
+              <!-- CTA Button -->
+              <button
+                class="w-full py-4 bg-primary text-white font-bold rounded-lg shadow-lg hover:shadow-primary/30 transition-all active:scale-[0.98]"
+                type="submit"
+              >
+                Create Account
+              </button>
+              <p class="text-center text-sm text-slate-600 dark:text-slate-400">
+                Already have an account?
+                <a class="text-primary font-bold hover:underline" href="#"
+                  >Log in</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </main>
+      <!-- Footer for Small Screens -->
+      <footer
+        class="md:hidden p-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400 uppercase tracking-widest"
+      >
+        © 2024 LUXE HOUSE. All Rights Reserved.
+      </footer>
+    </div>
+  </body>
+</html>

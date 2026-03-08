@@ -1,0 +1,650 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shopping Cart - LUXE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen"
+  >
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- Navigation Header -->
+      <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-10">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >diamond</span
+                >
+                <h1
+                  class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-100"
+                >
+                  LUXE
+                </h1>
+              </div>
+              <nav class="hidden md:flex space-x-8">
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="index.html"
+                  >Home</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >New Arrivals</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="product.html"
+                  >Collections</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Accessories</a
+                >
+                <a
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  href="#"
+                  >Journal</a
+                >
+              </nav>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
+                  >search</span
+                >
+                <input
+                  class="bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary w-64"
+                  placeholder="Search collections..."
+                  type="text"
+                  onkeypress="
+                    if (event.key === 'Enter')
+                      window.location.href = 'search-result.html';
+                  "
+                />
+              </div>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                onclick="window.location.href = 'wishlist.html'"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <button
+                class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative"
+                onclick="window.location.href = 'shopping-cart.html'"
+              >
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span
+                  class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
+                  >2</span
+                >
+              </button>
+              <div class="relative group ml-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="User profile avatar portrait"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMo5K2LTyBXjPQwQHTgGT1iJLo-sB_wb00MViPzPvz0aDzY4sPBhP92g5UFU8xpg8LrsUCp43l-7nWrSYc9GYW-5204VPpDRWRk2Otb0K02hWRqeRjRO7DCJ1i70Foh7-li1AdcoN4HRTjo5daz5fBk3mi1aBBSYuknlJBSQQHAqfJS5Z4FOxzc5I6n8-LO0qtrJQewpD5CyaSX2489f0rdM8fTuDV_G9kJi6b9U4VeTqaELjGR-PskhLhDy86ST8sg_NPz4U-djw"
+                  />
+                </div>
+                <!-- Hover menu -->
+                <div
+                  class="absolute right-0 top-full pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                >
+                  <div
+                    class="bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden py-1"
+                  >
+                    <a
+                      href="login.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Log in</a
+                    >
+                    <a
+                      href="register.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Registration</a
+                    >
+                    <a
+                      href="profile.html"
+                      class="px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >Profile</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-7xl mx-auto w-full px-6 md:px-20 py-10">
+        <div class="flex flex-col gap-2 mb-8">
+          <h1 class="text-4xl font-black tracking-tight">Shopping Bag</h1>
+          <p class="text-slate-500 dark:text-slate-400">
+            3 items in your luxury curation
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Shopping Bag List -->
+          <div class="lg:col-span-8 space-y-6">
+            <!-- Item 1 -->
+            <div
+              class="flex flex-col border-b border-slate-200 dark:border-slate-800 pb-6"
+            >
+              <div class="flex gap-6 items-start">
+                <div
+                  class="bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden aspect-[3/4] w-32 shrink-0"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Model wearing elegant silk midi dress in champagne color"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxWGA9A_dSHRdjglKBezNUQiqldgXU74Ol-mIV3SC-rTKZRp6gTmauyk_SBse1cC6k3zmv5ECy-LMX8iXqkwok4JvbQxtKMc3x1jicm87H_18qVdCufi33CRhqva9KYv-PGv6njDMoSFSdr1NVhw8usF0tbcYeWbnhfDCqEIqM6kYdkoTtGoHVvIEM6S8dj9oxzSf0a-jZd1FzjQiWrk6z6XK8H_PcfG78VFvHxPNa6EGOJb3fryua1dHgOkjY0DPNeei-L5kWzII"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col h-full justify-between">
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <h3 class="text-lg font-bold">Silk Midi Dress</h3>
+                      <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        Size: M | Color: Champagne
+                      </p>
+                    </div>
+                    <p class="text-lg font-bold text-primary">$850.00</p>
+                  </div>
+                  <div class="flex justify-between items-center mt-6">
+                    <div
+                      class="flex items-center gap-4 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >remove</span
+                        >
+                      </button>
+                      <span class="font-bold text-sm w-4 text-center">1</span>
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >add</span
+                        >
+                      </button>
+                    </div>
+                    <button
+                      class="flex items-center gap-2 text-sm text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-lg"
+                        >delete</span
+                      >
+                      <span class="font-medium">Remove</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div
+              class="flex flex-col border-b border-slate-200 dark:border-slate-800 pb-6"
+            >
+              <div class="flex gap-6 items-start">
+                <div
+                  class="bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden aspect-[3/4] w-32 shrink-0"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="High-end leather top handle designer bag in noir black"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvdUCMrVbHPKl4tPsufsorGFFbpEjboKb2Suhqs4moagn5rXUsQ3TLuwtkFqcLCku_sHjcGt7VOywF0sou5ThQ49AJaLO1588OazpP_KSjW62R2e5MGGlXPy-IqS_XKs4hGcNw8I4rrTTYyaKX5aFBfsXMJIiZPD6_h430BnFhd685rJvPGw6-QgLkJt2whPhKsXfd9sEuDHrcyBhzhdIewcHFkQQT25JCqK0ZD4QzbLEkuLemHMSICFZTh2i-asFpTwy1zxrUJWg"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col h-full justify-between">
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <h3 class="text-lg font-bold">Leather Top Handle Bag</h3>
+                      <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        Color: Noir | Collection: '24
+                      </p>
+                    </div>
+                    <p class="text-lg font-bold text-primary">$2,200.00</p>
+                  </div>
+                  <div class="flex justify-between items-center mt-6">
+                    <div
+                      class="flex items-center gap-4 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >remove</span
+                        >
+                      </button>
+                      <span class="font-bold text-sm w-4 text-center">1</span>
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >add</span
+                        >
+                      </button>
+                    </div>
+                    <button
+                      class="flex items-center gap-2 text-sm text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-lg"
+                        >delete</span
+                      >
+                      <span class="font-medium">Remove</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div
+              class="flex flex-col border-b border-slate-200 dark:border-slate-800 pb-6"
+            >
+              <div class="flex gap-6 items-start">
+                <div
+                  class="bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden aspect-[3/4] w-32 shrink-0"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Elegant pointed toe satin heels in emerald green"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtW9-OdzLO8-NyoS2q87PF3Oe3Q7S4d8o64Sk81IeJzFz5o4Qn6UYJLgbwmCpQ96biWpOYAMJ6Ue9DyF9G9k-H0hhlZwfxMsL5SBrYZJ3XgUJEKd6ZUliHP6EbHqT98zuh9v5u4Ucbg93sKucv1DiszkfzZ3vBjAcDYqNUrfMR-5FOd2YvoUutMVyuVWBhAbUdjm8Vim7Bb7Pn-UYxZwga-9i3acck57pwBhbqzois7jResVvtpWWCn9oXUT0VUNe-_59XQWpJQJM"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col h-full justify-between">
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <h3 class="text-lg font-bold">Satin Pointed Heels</h3>
+                      <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        Size: 38 | Color: Emerald
+                      </p>
+                    </div>
+                    <p class="text-lg font-bold text-primary">$690.00</p>
+                  </div>
+                  <div class="flex justify-between items-center mt-6">
+                    <div
+                      class="flex items-center gap-4 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >remove</span
+                        >
+                      </button>
+                      <span class="font-bold text-sm w-4 text-center">1</span>
+                      <button
+                        class="flex items-center justify-center text-slate-500 hover:text-primary"
+                      >
+                        <span class="material-symbols-outlined text-sm"
+                          >add</span
+                        >
+                      </button>
+                    </div>
+                    <button
+                      class="flex items-center gap-2 text-sm text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-lg"
+                        >delete</span
+                      >
+                      <span class="font-medium">Remove</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Summary Side Panel -->
+          <div class="lg:col-span-4">
+            <div
+              class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm sticky top-28"
+            >
+              <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+              <div class="space-y-4 mb-8">
+                <div class="flex justify-between">
+                  <span class="text-slate-500 dark:text-slate-400"
+                    >Subtotal</span
+                  >
+                  <span class="font-medium">$3,740.00</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500 dark:text-slate-400"
+                    >Estimated Shipping</span
+                  >
+                  <span class="font-medium">Free</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500 dark:text-slate-400"
+                    >Estimated Tax</span
+                  >
+                  <span class="font-medium">$310.50</span>
+                </div>
+                <div
+                  class="border-t border-slate-200 dark:border-slate-800 pt-4 mt-4"
+                >
+                  <div class="flex justify-between items-baseline">
+                    <span class="text-lg font-bold">Total</span>
+                    <span class="text-2xl font-black text-primary"
+                      >$4,050.50</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <button
+                  class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 uppercase tracking-wider text-sm"
+                  onclick="window.location.href = 'checkout.html'"
+                >
+                  Proceed to Checkout
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <p
+                  class="text-[10px] text-center text-slate-400 uppercase tracking-widest leading-relaxed"
+                >
+                  Tax and shipping calculated at checkout.<br />Secure payments
+                  with SSL encryption.
+                </p>
+              </div>
+              <div
+                class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800"
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="material-symbols-outlined text-primary"
+                    >verified</span
+                  >
+                  <span class="text-xs font-bold uppercase tracking-wide"
+                    >LUXE Guarantee</span
+                  >
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Authenticity guaranteed for all luxury goods. 30-day premium
+                  return policy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Recommendations Section -->
+        <section class="mt-24">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight">You May Also Like</h2>
+            <a class="text-primary font-bold text-sm hover:underline" href="#"
+              >View All</a
+            >
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Recommendation Item 1 -->
+            <div class="group cursor-pointer">
+              <div
+                class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative"
+              >
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Model wearing designer denim jacket with custom stitching"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkZ8t94hB_XPfwEYQ7lsYo_enp9wCYLil8G-NVVI4_oQRE9ReFTNQnLXFTPDKcVC3J05UuvyUWg5KsbqCCrXqSM4BCgM8b7Y1NeY7WFzOhaJVwXGUzkreLvSsA59d3hjmRVV1StAwaKD6r5fB1CD6kYAX9RxnlCZGHEEVnemjqdHJKLYjK6u3ulFzTs0uxGDakyi-uK3Nfx-B_YH-Iiad8-dmykFJU1C3y595h7wEZ_8LBLw6PoBTaDThw0lP5-1UFs73Jf-9Qpes"
+                />
+                <button
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 text-slate-900 dark:text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <h4
+                class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+              >
+                Embroidered Denim Jacket
+              </h4>
+              <p class="text-slate-500 dark:text-slate-400 text-xs mb-2">
+                Designer Collection
+              </p>
+              <p class="font-bold text-primary">$1,250.00</p>
+            </div>
+            <!-- Recommendation Item 2 -->
+            <div class="group cursor-pointer">
+              <div
+                class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative"
+              >
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Classic tailored white silk blouse"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY0oJWLpCgqwPvOmHlleeGeTnvTCa0d8--J9zAlQ7TMEsXYh-rpgG_kAtxVQFk6dZVyxdD6DSo-__7Ww1ZyZRTORRJ-6RL7rSLSEn15R5ZhbIR0FjtN0VvUVVT7a6IKtcbBQzdP6okd6RM_n8XmJeBRZyfJZuPE03MFElRvuDDdpIPXoEpcvpSKMOhA-Wsoq3cczO2VqWgKmBCEYAGT2n0wKq9MaHfFSpvQPxqNBJXxRRWrMQxRiJ-T1gHGxcG9foVhHLmkU2erH0"
+                />
+                <button
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 text-slate-900 dark:text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <h4
+                class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+              >
+                Silk Tailored Blouse
+              </h4>
+              <p class="text-slate-500 dark:text-slate-400 text-xs mb-2">
+                Essential White
+              </p>
+              <p class="font-bold text-primary">$490.00</p>
+            </div>
+            <!-- Recommendation Item 3 -->
+            <div class="group cursor-pointer">
+              <div
+                class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative"
+              >
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Minimalist gold cuff bracelet luxury jewelry"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuACWgShWXR0NUjmFiGb8DHv2Yq5ZK5B78-7y_Gn-FS3QZf42xe4ZOjuAYPlXhGWtdRpYP9AhbxBqf76V6fhXAHfnWpe9S_MqdY-9OiowJc98nj4c3YREuhcHDI6iQ85Vf9u1gIxbpYZZROaxYBEqVy6_yDkUGyMZZ7LqT3JH5xUxzkd9dMt0t37dNEaoecwbhxrHrg0YsuZH4u36sDBgOeuj8R_Et_nWO6Hhmf1G30qSKW3tPw1fL6BaxD8G9bFIUe98UjkVvc5_-c"
+                />
+                <button
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 text-slate-900 dark:text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <h4
+                class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+              >
+                Gold Sculpted Cuff
+              </h4>
+              <p class="text-slate-500 dark:text-slate-400 text-xs mb-2">
+                Fine Jewelry
+              </p>
+              <p class="font-bold text-primary">$3,800.00</p>
+            </div>
+            <!-- Recommendation Item 4 -->
+            <div class="group cursor-pointer">
+              <div
+                class="aspect-[3/4] rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 mb-4 relative"
+              >
+                <img
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-alt="Luxury tortoise shell sunglasses"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQHXnQ-xbztOwnZwDLffRHDPC_Vuv7e1VbjXjG_T5rNN9Fg-WJ-vP2WehjLXbBxsEXP_zrf-W5xvR5bKIw-3OoufBNXOHBG0d2H59xHQUMQoWOOTK4ryIpEVyqxRnm7AIkRmhEGaljCXtRyk5EuEBCvNh8r_R8Rz37TGWYlU6MTDFCvHCBNcxWLrggU5X0XT5B8APm2DqejgFZ9OOaRR78S1dIUFKyDH309jtQRZN-fRxSp7cVucNH2T08RhYmQ-HuKh5peqbVYmc"
+                />
+                <button
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md dark:bg-slate-900/90 text-slate-900 dark:text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <h4
+                class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+              >
+                Tortoise Oversized Shades
+              </h4>
+              <p class="text-slate-500 dark:text-slate-400 text-xs mb-2">
+                Summer Accessories
+              </p>
+              <p class="font-bold text-primary">$350.00</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-slate-800 pb-12 mb-12"
+          >
+            <div class="col-span-1 md:col-span-1">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="material-symbols-outlined text-white text-3xl"
+                  >diamond</span
+                >
+                <h1 class="text-2xl font-black tracking-tighter text-white">
+                  LUXE
+                </h1>
+              </div>
+              <p class="text-sm leading-relaxed">
+                Redefining luxury through timeless elegance and sustainable
+                craftsmanship since 1992.
+              </p>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                Customer Service
+              </h5>
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Shipping &amp; Returns</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Size Guide</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                The Brand
+              </h5>
+              <ul class="space-y-4 text-sm">
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Our Story</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Atelier</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Sustainability</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-white transition-colors" href="#"
+                    >Careers</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h5
+                class="text-white font-bold mb-6 uppercase text-xs tracking-[0.2em]"
+              >
+                Join the Journal
+              </h5>
+              <p class="text-sm mb-4">
+                Receive early access to collections and exclusive invites.
+              </p>
+              <div class="flex">
+                <input
+                  class="bg-slate-800 border-none rounded-l-lg py-2 px-4 text-sm focus:ring-1 focus:ring-primary w-full"
+                  placeholder="Email Address"
+                  type="email"
+                />
+                <button
+                  class="bg-slate-100 text-slate-900 px-4 rounded-r-lg font-bold text-xs uppercase"
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs uppercase tracking-widest"
+          >
+            <p>© 2026 LUXE ATELIER. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-8">
+              <a class="hover:text-white" href="#">Privacy Policy</a>
+              <a class="hover:text-white" href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
